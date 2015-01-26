@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E9287C15-B18D-418C-AF88-3138CC302186}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RemoteOperationLayer</RootNamespace>
+    <AssemblyName>RemoteOperationLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ExpressionSerialization">
+      <HintPath>Helpers\ExternalLibs\ExpressionTreeSerializer\ExpressionSerialization.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\AppDomainHelper.cs" />
+    <Compile Include="Helpers\DIContainer.cs" />
+    <Compile Include="Helpers\DIContainer.LazyBoundObject.cs" />
+    <Compile Include="Helpers\DIContainer.RegisteredTypeContainer.cs" />
+    <Compile Include="Helpers\DIContainer.RunOnTypeRegisteredOrAvailableQueue.cs" />
+    <Compile Include="Helpers\DIContainerAssemblyLoadedHookEventArgs.cs" />
+    <Compile Include="Helpers\DIContainerAutoRegisterableAttribute.cs" />
+    <Compile Include="Helpers\ExpressionHelper.cs" />
+    <Compile Include="Helpers\IDIContainer.cs" />
+    <Compile Include="Helpers\IDIContainerLazyBoundObject.cs" />
+    <Compile Include="Helpers\IDType.cs" />
+    <Compile Include="Helpers\SerializationHelper.cs" />
+    <Compile Include="Helpers\TypeHelper.cs" />
+    <Compile Include="IRemoteOperationHandler.cs" />
+    <Compile Include="IRemoteSide.cs" />
+    <Compile Include="IRemoteSideCommunicationContract.cs" />
+    <Compile Include="IRemoteSideCommunicationHandler.cs" />
+    <Compile Include="IRemoteSideFactory.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RemoteCallableFuncAttribute.cs" />
+    <Compile Include="RemoteCallableTypeAttribute.cs" />
+    <Compile Include="RemoteCommunicationState.cs" />
+    <Compile Include="RemoteOperation.cs" />
+    <Compile Include="RemoteOperationHandler.cs" />
+    <Compile Include="RemoteRequest.cs" />
+    <Compile Include="RemoteRequestBase.cs" />
+    <Compile Include="RemoteRequestResponseBase.cs" />
+    <Compile Include="RemoteResponse.cs" />
+    <Compile Include="RemoteResponseBase.cs" />
+    <Compile Include="RemoteSideCommunicator.cs" />
+    <Compile Include="RemoteSideConnectedEventArgs.cs" />
+    <Compile Include="RemoteSideDisconnectedEventArgs.cs" />
+    <Compile Include="RemoteSideFaultedException.cs" />
+    <Compile Include="RemoteSideIDType.cs" />
+    <Compile Include="RemoteSideUnreachableException.cs" />
+    <Compile Include="VersionMismatchException.cs" />
+    <Compile Include="WCF\IWCFConfigManager.cs" />
+    <Compile Include="WCF\WCFServiceClient.cs" />
+    <Compile Include="WCF\WCFServiceClientFactory.cs" />
+    <Compile Include="WCF\WCFServiceHost.cs" />
+    <Compile Include="WCF\WCFServiceHostFactory.cs" />
+    <Compile Include="WCF\WCFHelper.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
